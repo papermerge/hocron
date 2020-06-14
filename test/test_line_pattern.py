@@ -22,3 +22,11 @@ class TestLinePattern(unittest.TestCase):
         self.assertTrue(
             line_pattern.exact_match(['EUR', '45.12'])
         )
+
+        self.assertFalse(
+            line_pattern.exact_match(['EUR', '45,12'])
+        )
+
+        self.assertFalse(
+            line_pattern.exact_match(['45.12', 'EUR'])
+        )

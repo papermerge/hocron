@@ -37,7 +37,9 @@ class LinePattern:
 
     def exact_match(self, line_of_words):
         if len(line_of_words) != len(self.line_pattern):
-            raise ValueError("Error: expected same number of elements")
+            return False
+
+        counter = 0
 
         for index, value in enumerate(line_of_words):
             pattern = self.line_pattern[index]
@@ -49,17 +51,19 @@ class LinePattern:
                 if not re.match(pattern, value):
                     return False
 
-        return True
+            counter += 1
+
+        return counter == len(self.line_pattern)
 
     def match(self, random_line_of_words):
         if len(random_line_of_words) < 2:
-            raise ValueError("Error: at least two words must be provided")
+            return False
 
         if len(random_line_of_words) < len(self.line_pattern):
-            raise ValueError("Error: less words than in pattern")
+            return False
 
         for word_index, word in enumerate(random_line_of_words):
-            segment = range(word_index, word_index + len(self.line_pattern))
+            segment = slice(word_index, word_index + len(self.line_pattern))
             matched = self.exact_match(
                 list(random_line_of_words[segment])
             )
@@ -69,4 +73,15 @@ class LinePattern:
         return False
 
     def get_value(self, same_length_line_of_words):
-        pass
+
+        if len(same_length_line_of_words) != len(self.line_pattern):
+            return False
+
+        for index, value in enumerate(same_length_line_of_words):
+            pattern = self.line_pattern[index]
+            if isinstance(pattern, re.Pattern):
+                matched = re.match(pattern, value)
+                if matched:
+                    return value
+
+        return False
