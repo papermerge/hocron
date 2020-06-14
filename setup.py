@@ -10,11 +10,11 @@ setup(
     author="Eugen Ciur",
     author_email="eugen@papermerge.com",
     url="https://github.com/papermerge/hocron",
-    description="Metadata plugin for lidl receipts (used in Germany)",
+    description="Provides an API layer over HOCR data format",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="Apache 2.0 License",
-    keywords="metadata, papermerge, plugin, receipts",
+    keywords="metadata, papermerge, plugin, hocr",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

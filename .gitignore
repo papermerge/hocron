@@ -4,5 +4,5 @@ tmp/
 __pycache__
 build/
 dist/
-mglib.egg-info/
+hocron.egg-info/
 *.config.py
