@@ -1,3 +1,4 @@
+import re
 
 
 class LinePattern:
@@ -30,8 +31,42 @@ class LinePattern:
     def __init__(self, line_pattern):
         self._line_pattern = line_pattern
 
+    @property
+    def line_pattern(self):
+        return self._line_pattern
+
+    def exact_match(self, line_of_words):
+        if len(line_of_words) != len(self.line_pattern):
+            raise ValueError("Error: expected same number of elements")
+
+        for index, value in enumerate(line_of_words):
+            pattern = self.line_pattern[index]
+            if isinstance(pattern, str):
+                if pattern != value:
+                    return False
+
+            if isinstance(pattern, re.Pattern):
+                if not re.match(pattern, value):
+                    return False
+
+        return True
+
     def match(self, random_line_of_words):
-        pass
+        if len(random_line_of_words) < 2:
+            raise ValueError("Error: at least two words must be provided")
+
+        if len(random_line_of_words) < len(self.line_pattern):
+            raise ValueError("Error: less words than in pattern")
+
+        for word_index, word in enumerate(random_line_of_words):
+            segment = range(word_index, word_index + len(self.line_pattern))
+            matched = self.exact_match(
+                list(random_line_of_words[segment])
+            )
+            if matched:
+                return list(random_line_of_words[segment])
+
+        return False
 
     def get_value(self, same_length_line_of_words):
         pass

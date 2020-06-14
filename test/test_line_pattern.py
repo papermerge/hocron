@@ -15,3 +15,10 @@ class TestLinePattern(unittest.TestCase):
             matched_words,
             ['EUR', '45.12']
         )
+
+    def test_exact_match(self):
+        line_pattern = LinePattern(['EUR', re.compile('\d\d\.\d\d')])  # noqa 
+
+        self.assertTrue(
+            line_pattern.exact_match(['EUR', '45.12'])
+        )
