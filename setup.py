@@ -6,9 +6,10 @@ with open("README.md", "r") as fh:
 
 setup(
     name="hocron",
-    version="0.1.0",
+    version="0.2.0",
     author="Eugen Ciur",
     author_email="eugen@papermerge.com",
+    include_package_data=True,
     url="https://github.com/papermerge/hocron",
     description="Provides an API layer over HOCR data format",
     long_description=long_description,
