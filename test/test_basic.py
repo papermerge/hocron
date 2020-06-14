@@ -88,7 +88,7 @@ class TestBasic(unittest.TestCase):
         hocr = get_hocr("lidl-receipts", "lidl-3.hocr")
 
         line_pattern = LinePattern(
-            ['Datum', re.compile('\d\d\.\d\d\.\d\d')]
+            ['Datum', re.compile('\d\d.\d\d.\d\d')]
         )  # noqa
         value = hocr.get_labeled_value(line_pattern)
 
