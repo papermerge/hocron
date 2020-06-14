@@ -1,7 +1,7 @@
 import re
 import unittest
 
-from hocron.line_pattern import LinePattern
+from hocron import LinePattern
 
 
 class TestLinePattern(unittest.TestCase):

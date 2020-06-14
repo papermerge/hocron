@@ -2,8 +2,7 @@ import os
 import re
 import unittest
 
-from hocron import Hocron
-from hocron.line_pattern import LinePattern
+from hocron import Hocron, LinePattern
 
 BASE_DIR = os.path.dirname(
     os.path.abspath(__file__)

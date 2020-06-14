@@ -1,5 +1,7 @@
 from lxml import html
 
+from .line_pattern import LinePattern
+
 
 class Hocron:
     """
