@@ -1,7 +1,9 @@
 import os
+import re
 import unittest
 
 from hocron import Hocron
+from hocron.line_pattern import LinePattern
 
 BASE_DIR = os.path.dirname(
     os.path.abspath(__file__)
@@ -48,3 +50,14 @@ class TestBasic(unittest.TestCase):
 
         self.assertTrue(word)
         self.assertRegex(word, 'L.D.$')
+
+    def test_get_labeled_value(self):
+        hocr = get_hocr("lidl-receipts", "lidl-1.hocr")
+
+        line_pattern = LinePattern(
+            ['EUR', re.compile('\d+[\.,]\d\d$')]
+        )  # noqa
+        value = hocr.get_labeled_value(line_pattern)
+
+        self.assertTrue(value)
+        self.assertEqual(value, '41,92')
