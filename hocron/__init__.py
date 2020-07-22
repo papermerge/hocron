@@ -1,4 +1,3 @@
-import io
 from lxml import html
 
 from .line_pattern import LinePattern
@@ -10,8 +9,8 @@ class Hocron:
     a set of API function for metadata extraction.
     """
 
-    def __init__(self, hocr: io.BytesIO):
-        self.doc = html.parse(hocr)
+    def __init__(self, hocr: str):
+        self.doc = html.fromstring(hocr.encode())
 
     @property
     def first_word(self):

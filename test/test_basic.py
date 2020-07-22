@@ -1,4 +1,3 @@
-import io
 import os
 import re
 import unittest
@@ -20,10 +19,10 @@ def get_file_path(category, filename):
 
 def get_hocr(category, filename):
 
-    hocr_data = io.BytesIO()
+    hocr_data = ""
 
-    with open(get_file_path(category, filename), "b+r") as f:
-        hocr_data = io.BytesIO(f.read())
+    with open(get_file_path(category, filename), "r") as f:
+        hocr_data = f.read()
 
     hocr = Hocron(hocr_data)
 
