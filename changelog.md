@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0] - 24 July 2020
+
+### Changed
+
+- line_pattern.get_value can return matches of multiple regexp words.
+
+
 ## [0.2.0] - 22 July 2020
 
 ### Changed

@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="hocron",
-    version="0.4.0",
+    version="0.5.0",
     author="Eugen Ciur",
     author_email="eugen@papermerge.com",
     include_package_data=True,

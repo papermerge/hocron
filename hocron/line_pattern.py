@@ -72,7 +72,9 @@ class LinePattern:
 
         return False
 
-    def get_value(self, same_length_line_of_words):
+    def get_value(self, same_length_line_of_words, delim=''):
+
+        result = []
 
         if len(same_length_line_of_words) != len(self.line_pattern):
             return False
@@ -82,6 +84,9 @@ class LinePattern:
             if isinstance(pattern, re.Pattern):
                 matched = re.match(pattern, value)
                 if matched:
-                    return value
+                    result.append(value)
+
+        if len(result) > 0:
+            return delim.join(result)
 
         return False
