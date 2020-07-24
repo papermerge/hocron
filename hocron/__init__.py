@@ -21,7 +21,7 @@ class Hocron:
 
         return None
 
-    def get_labeled_value(self, line_pattern):
+    def get_labeled_value(self, line_pattern, delim=''):
         """
         line_pattern is an instance of hocron.line_pattern.LinePattern
         """
@@ -34,7 +34,7 @@ class Hocron:
             matched_words = line_pattern.match(line_of_words)
 
             if matched_words:
-                return line_pattern.get_value(matched_words)
+                return line_pattern.get_value(matched_words, delim)
 
         return None
 
