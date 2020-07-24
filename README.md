@@ -32,11 +32,12 @@ Example:
     value = hocron_inst.get_labeled_value(line_pattern)
     
 Hocron class receives as argument a string. It expects that string
-to in a valid hocr format.
+to in a valid hOCR format.
 
 
 ## References
+
 hOCR is an open standard of data representation for formatted text obtained from optical character recognition (OCR).
 
-[hOCR format specifications](http://kba.cloud/hocr-spec/1.2/)
-[Article on Wikipedia](https://en.wikipedia.org/wiki/HOCR)
+* [hOCR format specifications](http://kba.cloud/hocr-spec/1.2/)
+* [Article on Wikipedia](https://en.wikipedia.org/wiki/HOCR)
