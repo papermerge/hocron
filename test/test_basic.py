@@ -98,3 +98,20 @@ class TestBasic(unittest.TestCase):
 
         self.assertTrue(value)
         self.assertEqual(value, '08.06,20')
+
+    def test_get_labeled_value_for_beitrag(self):
+        hocr = get_hocr("simple-radio", "radio-1.hocr")
+
+        # looks up in hOCR file for line with
+        # described pattern
+        line_pattern = LinePattern([
+                'Beitragsnummer',
+                re.compile(r'\d\d\d'),
+                re.compile(r'\d\d\d'),
+                re.compile(r'\d\d\d')
+        ])  # noqa
+        value = hocr.get_labeled_value(line_pattern, delim='-')
+
+        self.assertEqual(
+            value, "123-456-789"
+        )
