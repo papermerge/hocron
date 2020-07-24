@@ -15,4 +15,28 @@ Hocron provides an API over HOCR file format.
 4. python setup.py develop  # provide a link to dev version of hocron
 5. python test/run.py
 
+## Usage
 
+Example:
+    
+    from hocron import Hocron, LinePattern
+
+    # define a line pattern
+    line_pattern = LinePattern([
+        'EUR',
+        re.compile('\d+[\.,]+\d\d$')
+    ])
+    
+    hocron_inst = Hocron(hocr_as_str)
+    
+    value = hocron_inst.get_labeled_value(line_pattern)
+    
+Hocron class receives as argument a string. It expects that string
+to in a valid hocr format.
+
+
+## References
+hOCR is an open standard of data representation for formatted text obtained from optical character recognition (OCR).
+
+[hOCR format specifications](http://kba.cloud/hocr-spec/1.2/)
+[Article on Wikipedia](https://en.wikipedia.org/wiki/HOCR)
